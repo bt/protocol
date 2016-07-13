@@ -56,7 +56,7 @@ message MapTile {
   message FortModule {
     required string fort_id = 1;
     required fixed64 unk1 = 2;
-    required int32 unk2 = 3;
+    required int32 pokedex_id = 3; // This Pokemon/Pokedex ID will appear at this fort
     required int32 expiry_timestamp_ms = 4;
   }
 
