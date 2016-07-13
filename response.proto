@@ -48,7 +48,16 @@ message MapTile {
     optional int32 gym_pokemon_id = 6; // Pokemon ID leading gym from Pokedex
     optional int32 unknown8 = 8;
     optional int32 is_pokestop = 9;
-    optional int32 prestige = 10;
+    optional int32 gym_prestige = 10;
+    optional int16 active_module = 12;
+    optional FortModule module = 13;
+  }
+  
+  message FortModule {
+    required string fort_id = 1;
+    required fixed64 unk1 = 2;
+    required int32 unk2 = 3;
+    required int32 expiry_timestamp_ms = 4;
   }
 
   message GPS {
@@ -73,7 +82,7 @@ message MapTile {
   message PokemonTwo {
     required string id = 1;
     required fixed64 t1 = 2;
-    required int32 pkmn_no = 3
+    required int32 pkmn_no = 3;
     required int32 time = 4;
     required fixed64 lat = 5;
     required fixed64 lng = 6;
