@@ -30,12 +30,12 @@ message MapTile {
   repeated PokemonOne visible = 5;
   optional GPS unknown9 = 9;
   optional PokemonTwo unknown10 = 10;
-  optional Unknown11 unknown11 = 11;
+  repeated optional FarAwayPokemon farawayPokemon = 11;
 
-  message Unknown11 {
-    required int32 unknown1 = 1;
-    required fixed32 unknown2 = 2;
-    required fixed64 unknown3 = 3;
+  message FarAwayPokemon {
+    required int32 pokedex_id = 1;
+    required fixed32 distance_meters_float = 2;
+    required fixed64 pokemon_uid = 3;
   }
 
   // Pokestop or Gym
