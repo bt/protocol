@@ -23,8 +23,8 @@ message ResponseEnvelop {
 // --- List of message tiles for "response" --- \\
 
 message MapTile {
-  required int64 id = 1;
-  required int64 timestamp = 2;
+  required int64 s2_cell_id = 1;
+  required int64 timestamp_ms = 2;
   repeated Fort forts = 3;
   repeated GPS grass = 4;
   repeated PokemonOne visible = 5;
@@ -41,13 +41,13 @@ message MapTile {
   // Pokestop or Gym
   message Fort {
     required string id = 1;
-    required int32 time = 2;
+    required int32 timestamp_ms = 2;
     required fixed64 lat = 3;
     required fixed64 lng = 4;
-    optional int32 unknown5 = 5;
-    optional int32 unknown6 = 6;
+    optional int32 gym_color = 5; // 1 = blue, 2 = red, 3 = yellow
+    optional int32 gym_pokemon_id = 6; // Pokemon ID leading gym from Pokedex
     optional int32 unknown8 = 8;
-    optional int32 unknown9 = 9; // activated?
+    optional int32 is_pokestop = 9;
     optional int32 prestige = 10;
   }
 
@@ -57,11 +57,11 @@ message MapTile {
   }
 
   message PokemonOne {
-    required fixed64 t1 = 1;
-    required int32 time = 2;
+    required fixed64 id = 1;
+    required int32 appear_timestamp_ms = 2; // First appeared timestamp in ms
     required fixed64 lat = 3;
     required fixed64 lng = 4;
-    required string id = 5;
+    required string uid = 5;
     required PokeInfo info = 7;
     required int32 t2 = 11;
 
